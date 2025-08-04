@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 // Load environment variables first, before any other imports
 dotenv.config();
 
-import express from 'express';
+import express, { type Request, type Response, type NextFunction } from 'express';
 import { agentRouter } from './agent/controller.js';
 
 const app = express();
@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 // Health check endpoint
-app.get('/', (req, res) => {
+app.get('/', (req: Request, res: Response) => {
   res.json({
     status: 'healthy',
     message: 'AI Agent Backend is running!',
@@ -31,13 +31,13 @@ app.get('/', (req, res) => {
 app.use('/agent', agentRouter);
 
 // Error handling middleware
-app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
+app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   console.error('Error:', err);
   res.status(500).json({ error: 'Internal server error' });
 });
 
 // 404 handler
-app.use('*', (req, res) => {
+app.use('*', (req: Request, res: Response) => {
   res.status(404).json({ error: 'Route not found' });
 });
 

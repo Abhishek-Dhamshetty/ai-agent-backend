@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import type { AgentRequest, AgentResponse } from '../types/index.js';
 import { MemoryManager } from '../memory/memoryManager.js';
 import { RAGService } from '../rag/rag-service.js';
@@ -16,7 +16,7 @@ const freeAIService = new FreeAIService();
 // Initialize RAG service on startup
 ragService.initialize().catch(console.error);
 
-agentRouter.post('/message', async (req, res) => {
+agentRouter.post('/message', async (req: Request, res: Response) => {
   try {
     const { message, session_id }: AgentRequest = req.body;
 
