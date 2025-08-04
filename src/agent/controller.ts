@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express';
+import express, { type Request, type Response } from 'express';
 import type { AgentRequest, AgentResponse } from '../types/index.js';
 import { MemoryManager } from '../memory/memoryManager.js';
 import { RAGService } from '../rag/rag-service.js';
