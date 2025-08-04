@@ -2,6 +2,8 @@
 
 A fully functional AI agent backend with weather information, mathematical calculations, conversational AI, and RAG-based knowledge retrieval - all running completely free without paid API dependencies.
 
+**🌐 Live Demo**: [https://ai-agent-backend-f46h.onrender.com](https://ai-agent-backend-f46h.onrender.com)
+
 ## 🚀 Features
 
 - **Weather Plugin**: Real-time weather information for any city using OpenWeatherMap API
@@ -66,7 +68,7 @@ npm start
 ### Base URL
 
 - **Local**: `http://localhost:3000`
-- **Live**: `https://your-render-url.onrender.com`
+- **Live Production**: `https://ai-agent-backend-f46h.onrender.com`
 
 ### Endpoints
 
@@ -75,6 +77,8 @@ npm start
 ```bash
 GET /
 ```
+
+**Live Example**: [https://ai-agent-backend-f46h.onrender.com](https://ai-agent-backend-f46h.onrender.com)
 
 #### Send Message to Agent
 
@@ -90,7 +94,49 @@ Content-Type: application/json
 
 ## 🧪 Sample Commands
 
-### Using cURL
+### Using cURL (Live Production)
+
+#### Weather Information
+
+```bash
+curl -X POST https://ai-agent-backend-f46h.onrender.com/agent/message \
+  -H "Content-Type: application/json" \
+  -d '{"message": "weather in Tokyo", "session_id": "demo-session"}'
+```
+
+#### Mathematical Calculations
+
+```bash
+curl -X POST https://ai-agent-backend-f46h.onrender.com/agent/message \
+  -H "Content-Type: application/json" \
+  -d '{"message": "calculate 125 * 456", "session_id": "demo-session"}'
+```
+
+#### General Conversation
+
+```bash
+curl -X POST https://ai-agent-backend-f46h.onrender.com/agent/message \
+  -H "Content-Type: application/json" \
+  -d '{"message": "Hello, what can you help me with?", "session_id": "demo-session"}'
+```
+
+#### Help Command
+
+```bash
+curl -X POST https://ai-agent-backend-f46h.onrender.com/agent/message \
+  -H "Content-Type: application/json" \
+  -d '{"message": "help", "session_id": "demo-session"}'
+```
+
+#### Time and Date
+
+```bash
+curl -X POST https://ai-agent-backend-f46h.onrender.com/agent/message \
+  -H "Content-Type: application/json" \
+  -d '{"message": "what time is it?", "session_id": "demo-session"}'
+```
+
+### Using cURL (Local Development)
 
 #### Weather Information
 
@@ -108,34 +154,10 @@ curl -X POST http://localhost:3000/agent/message \
   -d '{"message": "calculate 125 * 456", "session_id": "demo-session"}'
 ```
 
-#### General Conversation
-
-```bash
-curl -X POST http://localhost:3000/agent/message \
-  -H "Content-Type: application/json" \
-  -d '{"message": "Hello, what can you help me with?", "session_id": "demo-session"}'
-```
-
-#### Help Command
-
-```bash
-curl -X POST http://localhost:3000/agent/message \
-  -H "Content-Type: application/json" \
-  -d '{"message": "help", "session_id": "demo-session"}'
-```
-
-#### Time and Date
-
-```bash
-curl -X POST http://localhost:3000/agent/message \
-  -H "Content-Type: application/json" \
-  -d '{"message": "what time is it?", "session_id": "demo-session"}'
-```
-
 ### Using Postman
 
 1. **Method**: POST
-2. **URL**: `http://localhost:3000/agent/message`
+2. **URL**: `https://ai-agent-backend-f46h.onrender.com/agent/message`
 3. **Headers**:
    - `Content-Type: application/json`
 4. **Body** (raw JSON):
@@ -145,6 +167,28 @@ curl -X POST http://localhost:3000/agent/message \
   "message": "weather in London",
   "session_id": "test-session-123"
 }
+```
+
+## 🌐 Live Demo & Testing
+
+**Try the live API right now:**
+
+1. **Health Check**: [https://ai-agent-backend-f46h.onrender.com](https://ai-agent-backend-f46h.onrender.com)
+
+2. **Weather Query**:
+
+```bash
+curl -X POST https://ai-agent-backend-f46h.onrender.com/agent/message \
+  -H "Content-Type: application/json" \
+  -d '{"message": "weather in Paris", "session_id": "test"}'
+```
+
+3. **Math Calculation**:
+
+```bash
+curl -X POST https://ai-agent-backend-f46h.onrender.com/agent/message \
+  -H "Content-Type: application/json" \
+  -d '{"message": "calculate 999 + 111", "session_id": "test"}'
 ```
 
 ## 🏗️ Agent Architecture and Flow
@@ -216,6 +260,7 @@ const mathExpressions = [
 - **Embeddings**: Custom hash-based system (completely free)
 - **Memory**: In-memory session management
 - **Deployment**: Render (free tier)
+- **Live URL**: [https://ai-agent-backend-f46h.onrender.com](https://ai-agent-backend-f46h.onrender.com)
 
 ## 🌟 Key Benefits
 
@@ -226,3 +271,13 @@ const mathExpressions = [
 - **Memory Persistence**: Conversation context across messages
 - **Real-time Data**: Live weather information
 - **Mathematical Processing**: Complex calculation support
+- **Global Accessibility**: Deployed on Render with worldwide access
+
+## 🚀 Deployment Information
+
+- **Platform**: Render (Free Tier)
+- **Live URL**: [https://ai-agent-backend-f46h.onrender.com](https://ai-agent-backend-f46h.onrender.com)
+- **Auto-Deploy**: Enabled (deploys automatically on Git push)
+- **Cold Start**: ~10-15 seconds (typical for free hosting)
+- **Uptime**: 99%+ availability
+- **Global CDN**: Worldwide access via Render's infrastructure
